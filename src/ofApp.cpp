@@ -1,4 +1,7 @@
 #include "ofApp.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 //--------------------------------------------------------------
 void ofApp::setup() {
@@ -20,6 +23,9 @@ void ofApp::setup() {
     plane.set(1920, 1080);
     plane.mapTexCoords(0, 1080, 1920, 0);
     //plane.mapTexCoords(0, 0, img.getWidth(), img.getHeight());
+
+
+    srand (time(NULL));
 }
 
 
@@ -50,6 +56,12 @@ void ofApp::draw() {
 #endif
 
     shader.setUniform1f("u_time", ofGetElapsedTimef());
+    shader.setUniform1f("rand_1", rand() % 1000 + 1);
+    shader.setUniform1f("rand_2", rand() % 1000 + 1);
+    shader.setUniform1f("rand_3", rand() % 1000 + 1);
+    shader.setUniform1f("rand_4", rand() % 1000 + 1);
+    shader.setUniform1f("rand_5", rand() % 1000 + 1);
+    shader.setUniform1f("rand_6", rand() % 1000 + 1);
     //shader.setUniform1f("u_time", ofGetElapsedTimeMillis());
 
     shader.setUniform1f("mouseX", mousePosition);
